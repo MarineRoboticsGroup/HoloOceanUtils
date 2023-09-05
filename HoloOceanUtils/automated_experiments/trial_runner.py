@@ -54,7 +54,7 @@ class TrialRunner:
                 self.env.act("A", np.append(controller.auv_command(self.parameters, state, actor.prev_pos_error, actor.sum_pos_error, self.dt, start_time, self.now),[0.0, 0.0, 0.0]))
 
         if counter % self.env._ticks_per_sec == 0:
-            self.diver_command = controller.choose_random_commands(20, self.diver_command_random_generator)
+            self.diver_command = controller.choose_random_commands(10, self.diver_command_random_generator)
 
         self.env.act("B", self.diver_command)
 

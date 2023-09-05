@@ -1,4 +1,0 @@
-FGA
-ROS
-automated_experiments
-factor_graph

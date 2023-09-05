@@ -1,6 +1,5 @@
 import json
 from HoloOceanUtils.automated_experiments.trial_runner import run_trial, _run_trials_parallel
-import numpy as np
 
 # these parameters are guaranteed to be in the parameters dictionary, but may be overwritten by the experiment config
 default_parameters = {
@@ -15,7 +14,7 @@ default_parameters = {
     "ocean_current_offset": [0.0, 0.0, 0.0],
     "ocean_current_field_index": 0,
     "diver_command_random_seed": None,
-    "pyfg_save_location": "~/",
+    "pyfg_save_location": "",
     "pyfg_save_name": "trial"
 }
 
@@ -69,6 +68,3 @@ def _run_experiment_parallel(file_name):
 
         each_trial_parameters.append(parameters)
     _run_trials_parallel(each_trial_parameters)
-
-if __name__ == "__main__":
-    run_experiment("pyfg_files/experiment_3/experiment_3.json")

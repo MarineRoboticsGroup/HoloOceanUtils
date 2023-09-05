@@ -46,7 +46,6 @@ class ROSWrapper:
         """
         for agent in state:
             if agent != 't':
-                #print(state[agent])
                 for sensor in state[agent]:
                     sensor_name = agent + "_" + sensor
                     if sensor == "LocationSensor":
@@ -70,7 +69,6 @@ class ROSWrapper:
                         msg = sensor_msgs.msg.Imu()
 
                         msg.header = std_msgs.msg.Header(stamp=rospy.Time.now(), frame_id=agent)
-                        #print(state[agent][sensor])
                         msg.linear_acceleration.x = state[agent][sensor][0][0]
                         msg.linear_acceleration.y = state[agent][sensor][0][1]
                         msg.linear_acceleration.z = state[agent][sensor][0][2]

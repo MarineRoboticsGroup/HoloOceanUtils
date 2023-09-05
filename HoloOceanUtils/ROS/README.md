@@ -1,0 +1,3 @@
+Here we have an (untested) ROS package in the holo_wrapper folder demonstrating the use of holoocean_ros_wrapper.py. As well as the use of a custom Acoustic Beacon sensor message.
+
+This is meant as a reference for how to use the ROS wrapper with holoocean. You should create your own ROS package in a catkin workspace and use "from HoloOceanUtils.ROS.holoocean_ros_wrapper import ROSWrapper". Depending on your setup you will likely need to modify holoocean_ros_wrapper.py to handle to your sensors.

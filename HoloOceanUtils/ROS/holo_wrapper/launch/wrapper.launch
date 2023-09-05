@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="holo_wrapper" type="runner.py" name="runner_node" output="screen"></node>
+</launch>

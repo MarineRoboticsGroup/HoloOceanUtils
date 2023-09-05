@@ -1,0 +1,101 @@
+{
+    "shared_parameters": {
+        "scenario": {
+            "package_name": "MRG",
+            "name": "Hovering",
+            "world": "OpenOcean",
+            "main_agent": "B",
+            "agents": [
+                {
+                    "agent_name": "A",
+                    "agent_type": "HoveringAUV",
+                    "sensors": [
+                        {
+                            "sensor_type": "LocationSensor"
+                        },
+                        {
+                            "sensor_type": "AcousticBeaconSensor",
+                            "configuration": {
+                                "id": 0
+                            }
+                        },
+                        {
+                            "sensor_type": "IMUSensor",
+                            "configuration": {
+                                "ReturnBias": true,
+                                "AccelSigma": 0.001,
+                                "AngVelSigma": 0.0001
+                            },
+                            "Hz": 300
+                        },
+                        {
+                            "sensor_type": "RotationSensor"
+                        }
+                    ],
+                    "control_scheme": 2,
+                    "location": [5, 0, -30]
+                },
+                {
+                    "agent_name": "B",
+                    "agent_type": "ScubaDiver",
+                    "sensors": [
+                        {
+                            "sensor_type": "LocationSensor"
+                        },
+                        {
+                            "sensor_type": "AcousticBeaconSensor",
+                            "configuration": {
+                                "id": 1
+                            }
+                        },
+                        {
+                            "sensor_type": "CollisionSensor"
+                        },
+                        {
+                            "sensor_type": "IMUSensor",
+                            "configuration": {
+                                "ReturnBias": true,
+                                "AccelSigma": 0.001,
+                                "AngVelSigma": 0.0001
+                            },
+                            "Hz": 300
+                        },
+                        {
+                            "sensor_type": "RotationSensor"
+                        }
+                    ],
+                    "control_scheme": 0,
+                    "location": [0, 0, -30]
+                }
+            ],
+
+            "window_width":  1280,
+            "window_height": 720,
+            "ticks_per_sec": 300,
+            "frames_per_sec": false
+        },
+        "ocean_current_multiplier": 0.002,
+        "ocean_current_field_index": 0,
+        "capture_length": 1.0,
+        "num_captures": 60,
+        "circling_radius": 20.0,
+        "circling_period": 50.0,
+        "pyfg_save_location": "experiments/experiment_1/",
+        "pyfg_save_name": "test",
+        "should_render_viewport": false,
+        "auv_range_sigma": 0.1,
+        "landmark_range_sigma": 0.1,
+        "diver_command_random_seed": 195823904897
+    },
+    "trials": [
+        {
+            "num_landmarks": 0
+        },
+        {
+            "num_landmarks": 1
+        },
+        {
+            "num_landmarks": 2
+        }
+    ]
+}
