@@ -77,7 +77,7 @@
         "ocean_current_multiplier": 0.002,
         "ocean_current_field_index": 0,
         "capture_length": 1.0,
-        "num_captures": 60,
+        
         "circling_radius": 20.0,
         "circling_period": 50.0,
         "pyfg_save_location": "example/experiment_1/",
@@ -89,13 +89,16 @@
     },
     "trials": [
         {
-            "num_landmarks": 0
+            "num_landmarks": 0,
+            "num_captures": 40
         },
         {
-            "num_landmarks": 1
+            "num_landmarks": 1,
+            "num_captures": 50
         },
         {
-            "num_landmarks": 2
+            "num_landmarks": 2,
+            "num_captures": 60
         }
     ]
 }
