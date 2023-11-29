@@ -63,7 +63,11 @@ def auv_command(parameters, state, prev_error, sum_error, dt_sim, start_time, no
     goal_pos_diver = desired_pos_circling(start_time, now_sim, parameters["circling_period"], parameters["circling_radius"])
 
     # calculate goal pos in world frame
+    # goal_pos_world = np.array(state["B"]['LocationSensor']) + goal_pos_diver
+
+    # calculate goal pos in world frame with a safety offset to the diver [TODO] This causes errors with control scheme 2.
     goal_pos_world = np.array(state["B"]['LocationSensor']) + goal_pos_diver
+    goal_pos_world[2] = goal_pos_world[2] + parameters["diver_depth_offset"]
 
     # calculate goal pos in auv frame (the error of our PID controller)
     goal_pos_auv = (goal_pos_world - np.array(state["A"]['LocationSensor']))
@@ -79,7 +83,9 @@ def auv_command(parameters, state, prev_error, sum_error, dt_sim, start_time, no
 def choose_random_commands(force, random_generator):
     commands = set()
     x_commands = [None, 'forward_fast', 'forward_slow']
-    z_commands = [None, None, 'up', 'down']
+    # z_commands = [None, None, 'up', 'down']
+    # changed to keep diver at the constant depth
+    z_commands = [None, None, None, None]
     yaw_commands = [None, None,'turn_left', 'turn_right']
 
     commands.add(random_generator.choice(x_commands))
