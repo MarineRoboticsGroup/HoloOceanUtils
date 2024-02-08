@@ -2,3 +2,6 @@
 .vscode/
 .vscode/*
 __pycache__/
+automated_experiments/example/experiment_1/
+automated_experiments/example/test
+

@@ -11,17 +11,10 @@
                     "agent_type": "HoveringAUV",
                     "sensors": [
                         {
-                            "sensor_type": "LocationSensor",
-                            "location": [0,0,0]
-                        },
-                        {
-                            "sensor_type": "DepthSensor",
-                            "location": [0,0,0],
-                            "Sigma": 0
+                            "sensor_type": "LocationSensor"
                         },
                         {
                             "sensor_type": "AcousticBeaconSensor",
-                            "location": [0,0,0],
                             "configuration": {
                                 "id": 0
                             }
@@ -30,8 +23,8 @@
                             "sensor_type": "IMUSensor",
                             "configuration": {
                                 "ReturnBias": true,
-                                "AccelSigma": 0.0001,
-                                "AngVelSigma": 0.00001
+                                "AccelSigma": 0.001,
+                                "AngVelSigma": 0.0001
                             },
                             "Hz": 300
                         },
@@ -39,25 +32,18 @@
                             "sensor_type": "RotationSensor"
                         }
                     ],
-                    "control_scheme": 1,
-                    "location": [0, 0, -30]
+                    "control_scheme": 2,
+                    "location": [5, 0, -30]
                 },
                 {
                     "agent_name": "B",
                     "agent_type": "ScubaDiver",
                     "sensors": [
                         {
-                            "sensor_type": "LocationSensor",
-                            "location": [0,0,0]
-                        },
-                        {
-                            "sensor_type": "DepthSensor",
-                            "location": [0,0,0],
-                            "Sigma": 0
+                            "sensor_type": "LocationSensor"
                         },
                         {
                             "sensor_type": "AcousticBeaconSensor",
-                            "location": [0,0,0],
                             "configuration": {
                                 "id": 1
                             }
@@ -78,8 +64,8 @@
                             "sensor_type": "RotationSensor"
                         }
                     ],
-                    "control_scheme": 1,
-                    "location": [0, 0, -20]
+                    "control_scheme": 0,
+                    "location": [0, 0, -30]
                 }
             ],
 
@@ -91,21 +77,25 @@
         "ocean_current_multiplier": 0.002,
         "ocean_current_field_index": 0,
         "capture_length": 1.0,
-        "num_captures": 200,
-        "diver_origin": [0, 0, -20],
-        "diver_destination": [100, 0, -20],
-        "circling_radius": 50.0,
-        "circling_period": 25.0,
-        "diver_command_random_seed": 195823904897,
-        "auv_range_sigma": 2.9,
-        "landmark_range_sigma": 2.9,
+        "num_captures": 60,
+        "circling_radius": 20.0,
+        "circling_period": 50.0,
         "pyfg_save_location": "/home/morrisjp/Documents/git/HoloOceanUtils/HoloOceanUtils/automated_experiments/example/experiment_1/",
         "pyfg_save_name": "test",
-        "should_render_viewport": false
+        "should_render_viewport": false,
+        "auv_range_sigma": 0.1,
+        "landmark_range_sigma": 0.1,
+        "diver_command_random_seed": 195823904897
     },
     "trials": [
         {
             "num_landmarks": 0
+        },
+        {
+            "num_landmarks": 1
+        },
+        {
+            "num_landmarks": 2
         }
     ]
 }
